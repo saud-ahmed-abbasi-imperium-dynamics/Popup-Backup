@@ -1,63 +1,66 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif; /* General body font for better readability */
+    margin: 0;
+    padding: 20px;
 }
 
 .container {
-    display: flex;
-    height: 100vh;
-    padding: 10px;
+    display: flex; /* Use flexbox to align panes */
+    height: 100vh; /* Full viewport height */
 }
 
-/* Left Pane */
 .left-pane {
-    width: 25%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-right: 10px;
+    flex-direction: column; /* Stack options vertically */
+    height: 100%; /* Make left pane take the full height */
+    width: 200px; /* Fixed width for the left pane */
 }
 
-/* Option Boxes */
+.button-container {
+    flex: 1; /* Take up the remaining vertical space */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: space-evenly; /* Evenly distribute space between buttons */
+}
+
 .option-box {
-    background-color: #007BFF;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Button text color */
+    padding: 20px; /* Increased padding for larger buttons */
+    text-align: center; /* Center text inside the buttons */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: background-color 0.3s ease; /* Transition for hover effects */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Full width of the container */
+    box-sizing: border-box; /* Include padding in width */
+    min-height: 60px; /* Set a minimum height for buttons */
 }
 
 .option-box:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darken on hover */
 }
 
-/* Right Pane */
-.right-pane {
-    width: 75%;
-    padding-left: 10px;
-}
-
-/* Boundary Box */
 .boundary-box {
-    height: 100%;
-    background-color: #ffffff;
-    border: 2px dashed #007BFF;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1; /* Take up remaining space */
+    position: relative; /* Set position for absolute children */
+    margin-left: 20px; /* Space between left pane and boundary box */
+    border: 2px dashed #ccc; /* Visual border for the boundary box */
+    max-height: 80vh; /* Set a maximum height to keep it manageable */
+    height: auto; /* Allow height to adjust based on content */
+    padding: 10px; /* Padding inside the boundary box */
+    overflow: auto; /* Allow scrolling if content exceeds max height */
 }
 
-.boundary-box p {
-    font-size: 24px;
-    color: #007BFF;
-    font-weight: bold;
+/* Popup styles */
+.popup {
+    position: absolute; /* Position relative to the boundary box */
+    background-color: rgba(0, 123, 255, 0.9); /* Popup background */
+    color: white; /* Popup text color */
+    padding: 15px; /* Padding inside the popup */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    width: 200px; /* Fixed width for the popup */
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3); /* Popup shadow */
+    display: none; /* Initially hidden */
 }
